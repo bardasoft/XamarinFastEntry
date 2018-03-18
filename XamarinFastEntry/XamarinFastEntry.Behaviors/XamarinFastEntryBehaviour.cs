@@ -41,13 +41,13 @@ namespace XamarinFastEntrySample.FastEntry
 
         void OnEntryTextChanged(object sender, TextChangedEventArgs args)
         {
-            if(sender == null)return;
+            if(sender == null || args == null|| !(sender is Entry))return;
             var entry = (Entry)sender;
             var oldString = args.OldTextValue;
             var newString = args.NewTextValue;
             string entryText = entry.Text;
 
-            if (MaxLength != null && MaxLength >= 0 && entryText.Length > 0)
+            if (MaxLength != null && MaxLength >= 0 && entryText?.Length > 0)
             {
                 var output = xamarinMaxLength.ProcessLength(entryText, oldString, newString, MaxLength);
                 if (output != entryText)
@@ -58,7 +58,7 @@ namespace XamarinFastEntrySample.FastEntry
                 }
             }
 
-            if (IsNumeric != null && IsNumeric == true && entryText.Length > 0)
+            if (IsNumeric != null && IsNumeric == true && entryText?.Length > 0)
             {
                 var output = xamarinIsNumeric.ProcessIsNumeric(entryText, oldString, newString);
                 if (output != entryText)
@@ -69,7 +69,7 @@ namespace XamarinFastEntrySample.FastEntry
                 }
             }
 
-            if (IsAmount != null && IsAmount == true && entryText.Length > 0)
+            if (IsAmount != null && IsAmount == true && entryText?.Length > 0)
             {
                 var output = xamarinIsAmount.ProcessIsAmount(entryText, oldString, newString);
                 if (output != entryText)
@@ -80,7 +80,7 @@ namespace XamarinFastEntrySample.FastEntry
                 }
             }
 
-            if (IsNumericWithSpace != null && IsNumericWithSpace == true && entryText.Length > 0)
+            if (IsNumericWithSpace != null && IsNumericWithSpace == true && entryText?.Length > 0)
             {
                 var output = _xamarinIsNumericWithSpace.ProcessIsNumericWithSpace(entryText, oldString, newString);
                 if (output != entryText)
@@ -91,7 +91,7 @@ namespace XamarinFastEntrySample.FastEntry
                 }
             }
 
-            if (Mask != null && Mask.Length > 0 && entryText.Length > 0)
+            if (Mask != null && Mask.Length > 0 && entryText?.Length > 0)
             {
                 var output = xamarinMask.ProcessMask(entryText, oldString, newString, Mask);
                 if (output != entryText)

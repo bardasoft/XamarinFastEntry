@@ -16,6 +16,9 @@
     <PackageProjectUrl>https://github.com/shiwankaswe/XamarinFastEntry</PackageProjectUrl>
     <PackageIconUrl>https://github.com/jesulink2514/XamarinFastEntry/raw/master/logo.png</PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>1.1.0
+-Adding null guard</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
