@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace XamarinFastEntrySample.FastEntry
 {
@@ -30,18 +27,21 @@ namespace XamarinFastEntrySample.FastEntry
 
         protected override void OnAttachedTo(Entry bindable)
         {
+            if(bindable == null)return;
             bindable.TextChanged += OnEntryTextChanged;
             base.OnAttachedTo(bindable);
         }
 
         protected override void OnDetachingFrom(Entry bindable)
         {
+            if(bindable == null)return;
             bindable.TextChanged -= OnEntryTextChanged;
             base.OnDetachingFrom(bindable);
         }
 
         void OnEntryTextChanged(object sender, TextChangedEventArgs args)
         {
+            if(sender == null)return;
             var entry = (Entry)sender;
             var oldString = args.OldTextValue;
             var newString = args.NewTextValue;
